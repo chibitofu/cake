@@ -30,3 +30,8 @@ for (j = 0; j < firstArr.length; j++) {
     answerArr.push(totalProduct/firstArr[j])
 }
 console.log(answerArr)
+//this answer is O(2n)
+ 
+// what if you can't use division
+// this where I would try to visualize things to try and see a different pattern
+// 
