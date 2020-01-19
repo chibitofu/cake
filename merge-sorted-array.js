@@ -29,6 +29,14 @@ while (headOneIdx + headTwoIdx < myArray.length + alicesArray.length) {
 
 console.log(answerArr)
 
+/* Bonus
+What if we wanted to merge several sorted arrays?
+Write a function that takes as an input an array of sorted arrays and outputs a single sorted array with all the items from each array.
+
+Do we absolutely have to allocate a new array to use for the merged output?
+Where else could we store our merged array? How would our function need to change?
+*/
+
 /* Their answer
 function mergeArrays(myArray, alicesArray) {
 
