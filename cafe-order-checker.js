@@ -32,3 +32,45 @@ But,
   Served Orders: [1, 2, 3, 5, 4, 6]
 would be first-come, first-served.
 */
+
+// first thought is to just conact the two array and then sort them. O(nlogn)
+
+// let takeOut = [1,3,5]
+// let dineIn = [2,4,6]
+
+// let served = takeOut.concat(dineIn)
+
+// served.sort((a,b) => {
+//     return a - b
+// })
+
+// console.log(served)
+
+// if I were to do this in O(n) time I would loop through both arrays.
+// push the lower number to a new array and move that index forward.
+// once all numbers are gone in an array, push the rest fo the numbers to the answer array.
+
+let takeOut2 = [1,3,5]
+let dineIn2 = [2,4,6,10,11]
+
+// will want to keep track of the index of both.
+
+let cafeOrder = (takeOut, dineIn) => {
+    let takeOutHead = 0
+    let dineInHead = 0
+    let answer = []
+
+    while (takeOutHead !== takeOut.length || dineInHead !== dineIn.length) {
+        if (takeOut[takeOutHead] < dineIn[dineInHead] || dineInHead === dineIn.length) {
+            answer.push(takeOut[takeOutHead])
+            takeOutHead++
+        } else {
+            answer.push(dineIn[dineInHead])
+            dineInHead++
+        }
+    }
+
+    return answer
+}
+
+console.log(cafeOrder(takeOut2, dineIn2))
