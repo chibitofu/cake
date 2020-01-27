@@ -76,7 +76,7 @@ function orderChecker(take, dine, serve) {
         }
     }
 
-    if (dineIdx < dine.length || takeIdx < take.length) {
+    if (dineIdx !== dine.length || takeIdx !== take.length) {
         return false
     }
 
