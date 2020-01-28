@@ -1,4 +1,4 @@
-// create a binary search tree.
+// create a binary search.
 // pick a pivot point, check answer against that.
 // if pivot is greater, cut tree in half at pviot and do again on right side.
 // if less than, do again on left side.
