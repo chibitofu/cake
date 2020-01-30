@@ -14,6 +14,7 @@ What do we want to do with "After", "Dana", and "add"? In this example, your fin
 Assume the input will only contain words and standard punctuation.
 */
 const paragraph = "After beating the eggs, Dana read the next step: Add milk and eggs, then add flour and sugar."
+const paragraph2 = "We came, we saw, we conquered...then we ate Bill's (Mille-Feuille) cake. The bill came to five dollars."
 
 function wordCloud(para) {
     let wordCloud = new Map();
@@ -42,4 +43,4 @@ function wordCloud(para) {
     return sortedMap
 }
 
-console.log(wordCloud(paragraph))
+console.log(wordCloud(paragraph2))
