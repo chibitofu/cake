@@ -7,7 +7,17 @@ When I reached the end of the dictionary, I started from the beginning and did t
 Now I have an array of words that are mostly alphabetical, except they start somewhere in the middle of the alphabet, reach the end, and then start from the beginning of the alphabet.
 In other words, this is an alphabetically ordered array that has been "rotated.
 */
-  const words = [
+
+/*
+Write a function for finding the index of the "rotation point," which is where I started working from the beginning of the dictionary.
+This array is huge (there are lots of words I don't know) so we want to be efficient here.
+*/
+
+
+// create a binary search to find "a"
+// instead of slicing array and passing it through recursion, just pass the whole array and the head and tail indexes.
+
+const words = [
     'ptolemaic',
     'retrograde',
     'supplant',
@@ -20,8 +30,3 @@ In other words, this is an alphabetically ordered array that has been "rotated.
     'karpatka',
     'othellolagkage',
   ];
-
-  /*
-  Write a function for finding the index of the "rotation point," which is where I started working from the beginning of the dictionary.
-  This array is huge (there are lots of words I don't know) so we want to be efficient here.
-  */
