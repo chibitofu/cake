@@ -30,3 +30,12 @@ const words = [
     'karpatka',
     'othellolagkage',
   ];
+
+
+  function findPivot(input) {
+    let head = 0;
+    let tail = input.length - 1;
+    let pivot = Math.floor(input.length / 2);
+
+    function pivot(words, head, tail, pivot)
+  }
