@@ -28,3 +28,27 @@ Example 5:
 Input: "{[]}"
 Output: true
 */
+
+var isValid = function(s) {
+    const charArr = s.split('');
+    const charDict = {")" : "(", "}" : "{", "]" : "["};
+    let checkArr = [];
+    for (let i = 0; i < charArr.length; i++) {
+        const par = charArr[i];
+        if (charDict[par]) {
+            const idx = checkArr.lastIndexOf(charDict[par])
+            if (idx == -1) {
+                return false
+            } else {
+                if (idx !== checkArr.length - 1) {
+                    return false
+                } else {
+                    checkArr.splice(idx, 1);
+                }
+            }
+        } else {
+            checkArr.push(par)
+        }
+    }
+    return checkArr.length == 0 ? true : false
+};
