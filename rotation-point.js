@@ -31,11 +31,17 @@ const words = [
     'othellolagkage',
   ];
 
+const pivot = 'asymptote';
 
-  function findPivot(input) {
-    let head = 0;
-    let tail = input.length - 1;
+function findPivot(input, pivotWord) {
+    let head, tail;
     let pivot = Math.floor(input.length / 2);
 
-    function pivot(words, head, tail, pivot)
-  }
+    function pivot(words, head, tail, pivotIdx, pivotWord) {
+        if (words[pivotIdx] === pivotWord) {
+            return pivotIdx
+        } else if (words[pivotIdx] < pivotWord) {
+            
+        }
+    }
+}
