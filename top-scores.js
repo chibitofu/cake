@@ -48,9 +48,9 @@ function highScore(unsortedScores, HIGHEST_POSSIBLE_SCORE) {
     return sortedScores
 }
 
-console.log(highScore([37, 89, 41, 65, 91, 53], 100));
-console.log(highScore([37, 89, 41, 65, 91, 53, 47, 37, 37, 100], 100));
-console.log(highScore([37, 89, 41, 65, 91, 53], 0));
-console.log(highScore([37, 89, 41, 65, 91, 53]));
-console.log(highScore(undefined, 0));
-console.log(highScore([0], 100));
+console.log(highScore([37, 89, 41, 65, 91, 53], 100), '| expect [ 91, 89, 65, 53, 41, 37 ]');
+console.log(highScore([37, 89, 41, 65, 91, 53, 47, 37, 37, 100], 100), '| expect [100, 91, 89, 65, 53, 47, 41, 37, 37, 37]');
+console.log(highScore([37, 89, 41, 65, 91, 53], 0), '| expect [ 0, 0, 0, 0, 0, 0 ]');
+console.log(highScore([37, 89, 41, 65, 91, 53]), '| expect HIGHEST_POSSIBLE_SCORE is undefined');
+console.log(highScore(undefined, 0), '| expect unsortedScores is undefined');
+console.log(highScore([0], 100), '| expect [ 0 ]');
