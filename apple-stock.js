@@ -17,33 +17,65 @@ getMaxProfit(stockPrices);
 Returns 6 (buying for $5 and selling for $11)
 */
 
+
+// Doesn't take into account if max profit is after the largest number ex. 10, 7, 5, 8, 11, 2, 9]
+// const getMaxProfit = (stockPrices) => {
+//     let maxPrice = [];
+//     let lowestPrice;
+
+//     for (let i = 1; i < stockPrices.length; i++) {
+//         if (i === 1) {
+//             maxPrice[0] = stockPrices[i];
+//             maxPrice[1] = i;
+//         } else {
+//             if (maxPrice[0] < stockPrices[i]) {
+//                 maxPrice[0] = stockPrices[i];
+//                 maxPrice[1] = i;
+//             }
+//         }
+//     }
+
+//     for (let i = maxPrice[1] - 1; i > 0; i--) {
+//         if (i === maxPrice[1] - 1) {
+//             lowestPrice = stockPrices[i];
+//         } else {
+//             if (lowestPrice > stockPrices[i]) {
+//                 lowestPrice = stockPrices[i];
+//             }
+//         }
+//     }
+
+//     return maxPrice[0] - lowestPrice
+// }
+
 const getMaxProfit = (stockPrices) => {
-    let maxPrice = [];
-    let lowestPrice;
+    if (!stockPrices) {
+        return undefined
+    } else if (stockPrices.length <= 1) {
+        return 0
+    } else if (stockPrices.length === 2) {
+        return stockPrices[1] - stockPrices[0]
+    }
 
-    for (let i = 1; i < stockPrices.length; i++) {
-        if (i === 1) {
-            maxPrice[0] = stockPrices[i];
-            maxPrice[1] = i;
-        } else {
-            if (maxPrice[0] < stockPrices[i]) {
-                maxPrice[0] = stockPrices[i];
-                maxPrice[1] = i;
+    let maxProfit = stockPrices[stockPrices.length - 1] - stockPrices[0];
+
+    for (let i = stockPrices.length - 1; i > 1; i--) {
+        for (let j = 0; j < stockPrices.length - 2; j++) {
+            if (i !== j) {
+                const profit = stockPrices[i] - stockPrices[j];
+                if (profit > maxProfit) {
+                    maxProfit = profit;
+                }
             }
         }
     }
 
-    for (let i = maxPrice[1] - 1; i > 0; i--) {
-        if (i === maxPrice[1] - 1) {
-            lowestPrice = stockPrices[i];
-        } else {
-            if (lowestPrice > stockPrices[i]) {
-                lowestPrice = stockPrices[i];
-            }
-        }
-    }
-
-    return maxPrice[0] - lowestPrice
+    return maxProfit
 }
 
 console.log(getMaxProfit([10, 7, 5, 8, 11, 9]));
+console.log(getMaxProfit([10, 9, 8, 7, 6]));
+console.log(getMaxProfit([]));
+console.log(getMaxProfit([10, 11]));
+console.log(getMaxProfit([10]));
+console.log(getMaxProfit());
