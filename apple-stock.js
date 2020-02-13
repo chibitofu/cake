@@ -48,32 +48,62 @@ Returns 6 (buying for $5 and selling for $11)
 //     return maxPrice[0] - lowestPrice
 // }
 
+// This is O(n^2) not a great solution.
+// const getMaxProfit = (stockPrices) => {
+//     if (!stockPrices) {
+//         return undefined
+//     } else if (stockPrices.length <= 1) {
+//         return 0
+//     } else if (stockPrices.length === 2) {
+//         return stockPrices[1] - stockPrices[0]
+//     }
+
+//     let maxProfit = stockPrices[stockPrices.length - 1] - stockPrices[0];
+
+//     for (let i = stockPrices.length - 1; i > 1; i--) {
+//         for (let j = 0; j < stockPrices.length - 2; j++) {
+//             if (i !== j) {
+//                 const profit = stockPrices[i] - stockPrices[j];
+//                 if (profit > maxProfit) {
+//                     maxProfit = profit;
+//                 }
+//             }
+//         }
+//     }
+
+//     return maxProfit
+// }
+
+// O(n) time and space
 const getMaxProfit = (stockPrices) => {
-    if (!stockPrices) {
-        return undefined
-    } else if (stockPrices.length <= 1) {
-        return 0
-    } else if (stockPrices.length === 2) {
-        return stockPrices[1] - stockPrices[0]
+    try {
+        stockPrices.length
+    } catch (e) {
+        return e.message
     }
 
-    let maxProfit = stockPrices[stockPrices.length - 1] - stockPrices[0];
+    if (stockPrices.length < 2) {
+        return TypeError('stockPrices need to have at least 2 items').message
+    }
 
-    for (let i = stockPrices.length - 1; i > 1; i--) {
-        for (let j = 0; j < stockPrices.length - 2; j++) {
-            if (i !== j) {
-                const profit = stockPrices[i] - stockPrices[j];
-                if (profit > maxProfit) {
-                    maxProfit = profit;
-                }
-            }
-        }
+    let minPrice = stockPrices[0];
+    let maxProfit = stockPrices[1] - stockPrices[0];
+
+    for (let i = 1; i < stockPrices.length; i++) {
+        const currentPrice = stockPrices[i];
+
+        const currentProfit = currentPrice - minPrice;
+
+        maxProfit = Math.max(maxProfit, currentProfit);
+
+        minPrice = Math.min(minPrice, currentPrice);
     }
 
     return maxProfit
 }
 
 console.log(getMaxProfit([10, 7, 5, 8, 11, 9]));
+console.log(getMaxProfit([10, 7, 5, 8, 11, 2, 9]));
 console.log(getMaxProfit([10, 9, 8, 7, 6]));
 console.log(getMaxProfit([]));
 console.log(getMaxProfit([10, 11]));
